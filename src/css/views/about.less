@@ -1,0 +1,122 @@
+// 
+// About View
+// ==============================
+
+
+// View gradient
+
+.View--about {
+	#gradient .directional(#f83, #fa2562, 145deg);
+}
+
+
+// Layout & Common
+
+// layout
+
+.About {
+	text-align: center;
+}
+.About-section {
+	padding: 2em;
+
+	& + & {
+		border-top: 1px solid rgba(255, 255, 255, 0.2);
+	}
+}
+
+
+// lists
+
+.About__list {
+	.display-flex();
+	.flex-direction(row);
+	.align-items(center);
+	.justify-content(space-between);
+	margin-left: -10px;
+	margin-right: -10px;
+}
+.About__list__item {
+	.flex(1,1,0);
+	margin: 0 10px;
+
+	> img {
+		height: auto;
+		max-width: 100%;
+	}
+}
+
+
+
+
+// Top
+// ------------------------------
+
+
+// logo
+
+.About__logo {
+	.square(90px);
+	display: inline-block;
+}
+
+
+// headings
+
+.About__heading {
+	font-size: @font-size-huge;
+	font-weight: 500;
+	margin-top: 1em;
+}
+.About__subheading {
+	// font-size: @font-size-sm;
+	margin-bottom: 1em;
+	margin-top: 1em;
+}
+
+
+// content
+
+.About__content {
+	line-height: 1.3;
+	text-align: left;
+	margin-top: 2em;
+}
+
+
+// button
+
+.About__button {
+	margin-top: 2em;
+}
+
+
+
+
+// Bottom
+// ------------------------------
+
+
+// lists
+
+.About__team {
+	font-weight: 500;
+	margin-top: 2em;
+}
+.About__team__member {
+	> img {
+		background-color: white;
+		border-radius: 50%;
+		box-shadow: 0 0 0 3px @text-color;
+		margin-bottom: 1em;
+	}
+}
+
+
+
+
+
+
+
+
+

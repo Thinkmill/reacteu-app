@@ -1,0 +1,107 @@
+// 
+// Talk
+// ==============================
+
+
+
+
+// Base
+// ------------------------------
+
+.TalkDetails {
+}
+
+
+
+
+// Speaker
+// ------------------------------
+
+.TalkDetails__speakers {
+	margin-bottom: 2em;
+}
+
+.TalkDetails__speaker {
+	.align-items(center);
+	.display-flex();
+	.retina-1px-border-bottom( rgba(255, 255, 255, 0.17) );
+	margin-right: -1em;
+	padding: 10px 1em 10px 0;
+
+	&:first-child {
+		.retina-1px-border-top-and-bottom( rgba(255, 255, 255, 0.17) );
+	}
+
+	&.Tappable-active {
+		#gradient .horizontal-three-colors(fade(black,0%),fade(black,20%),50%,fade(black,0%));
+	}
+}
+.TalkDetails__speaker__name {
+	.flex(1,1,0);
+	padding: 0 1em;
+}
+.TalkDetails__speaker__avatar {
+	.avatar(40px);
+}
+
+
+
+
+// Details
+// ------------------------------
+.TalkDetails__details {
+	padding: 1em 1em 2em;
+}
+
+.TalkDetails__heading {
+	font-size: @font-size-huge;
+	font-weight: 500;
+	line-height: 1.2;
+	margin-bottom: 1em;
+	margin-top: 1em;
+}
+
+
+
+
+// Button
+// ------------------------------
+
+.TalkDetails__button__icon {
+	&.is-positive { color: @app-success; }
+	&.is-negative { color: @app-danger; }
+}
+
+
+
+
+// Next Talk
+// ------------------------------
+
+.TalkDetails__next-talk {
+	display: block; // reset because .Footerbar is displayed "flex" by default
+	font-size: @font-size-xs;
+	line-height: 1.2;
+	height: auto;
+	padding: @gutter-base;
+	text-align: center;
+}
+
+.TalkDetails__next-talk__time {
+	color: rgba(255, 255, 255, 0.75);
+}
+.TalkDetails__next-talk__name {
+	font-weight: 500;
+}
+.TalkDetails__next-talk__chevron {
+	font-size: 24px;
+}
+
+
+
+
+
+
+
+
+

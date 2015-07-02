@@ -1,0 +1,39 @@
+{
+  "name": "react-europe",
+  "version": "1.0.2",
+  "description": "ReactEurope Conference",
+  "private": true,
+  "main": "src/js/app.js",
+  "author": "Joss Mackison",
+  "dependencies": {
+    "async": "^1.0.0",
+    "blacklist": "^1.1.2",
+    "capitalize": "^1.0.0",
+    "classnames": "^2.1.1",
+    "defaults": "^1.0.2",
+    "httpify": "^1.0.0",
+    "moment": "^2.10.3",
+    "react": "^0.13.3",
+    "react-blink": "^1.0.2",
+    "react-container": "^0.2.2",
+    "react-sentry": "^0.4.0",
+    "react-tappable": "^0.5.1",
+    "react-timers": "^3.1.0",
+    "touchstonejs": "git+https://github.com/touchstonejs/touchstonejs.git#3a0d5dbb2a3ee987aefe9d306855a60b0577866b",
+    "tween.js": "^0.14.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "happiness": "^1.0.6",
+    "touchstonejs-tasks": "^0.2.5"
+  },
+  "scripts": {
+    "build": "gulp clean && gulp build",
+    "build:production": "gulp clean && NODE_ENV=production gulp build",
+    "lint": "happiness",
+    "prepare": "gulp clean && gulp prepare",
+    "prepare:production": "gulp clean && NODE_ENV=production gulp prepare",
+    "start": "gulp clean && gulp dev",
+    "watch": "gulp clean && gulp watch"
+  }
+}

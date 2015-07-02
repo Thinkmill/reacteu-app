@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="96px" height="96px" viewBox="0 0 96 96" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>keystonejs</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="iOS" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="5.0-About" sketch:type="MSArtboardGroup" transform="translate(-391.000000, -491.000000)" fill="#FFFFFF">
+            <g id="Group" sketch:type="MSLayerGroup" transform="translate(125.000000, 491.000000)">
+                <path d="M357.626821,0 C359.65895,0.233590634 361.238095,1.96064224 361.238095,4.05574533 L361.238095,91.155464 C361.238095,93.411195 359.409708,95.2380952 357.155973,95.2380952 L270.08145,95.2380952 C267.827716,95.2380952 266,93.411195 266,91.155464 L266,4.05574533 C266,1.96064224 267.578565,0.233590634 269.610612,4.58486769e-13 L357.626821,2.52167723e-12 L357.626821,0 Z M315.788452,45.577732 L341.336825,77.546469 L324.316896,77.546469 L306.579991,54.0051325 L301.358234,60.3912174 L301.358234,77.546469 L287.786773,77.546469 L287.786773,17.6654124 L301.358234,17.6654124 L301.358234,44.0102812 L322.401154,17.6654124 L339.413692,17.6654124 L315.788452,45.577732 L315.788452,45.577732 Z" id="keystonejs" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

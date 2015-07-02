@@ -1,0 +1,125 @@
+//
+// Miscellaneous
+// ==============================
+
+
+
+
+
+// View Feedback
+// ------------------------------
+
+
+// no results
+
+.no-results {
+	color: fade(@text-color, 60%);
+}
+.no-results__icon {
+	font-size: 64px;
+}
+.no-results__text {
+	margin-top: 1em;
+}
+
+
+// search attendees message
+
+.search-attendees-message {
+	color: fade(white, 50%);
+	font-size: @font-size-xs;
+	line-height: 1.4;
+	padding: 2em;
+	text-align: center;
+}
+
+
+
+
+
+// Forms
+// ------------------------------
+
+
+// hide the last divider on stacked forms
+
+.field-item:last-child > .item-inner::after {
+	display: none;
+}
+
+
+
+
+
+// Table buttons
+// ------------------------------
+
+.button-table {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+}
+.button-table__item {
+	background: none;
+	border: none;
+	display: table-cell;
+	padding: 1em;
+	text-align: center;
+
+	& + & {
+		border-left: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	&.Tappable-active {
+		background-color: rgba(0, 0, 0, 0.1);
+	}
+
+	// disabled option
+	&.is-disabled {
+		pointer-events: none;
+
+		> .button-table__item__icon,
+		> .button-table__item__label {
+			opacity: .3;
+		}
+	}
+}
+.button-table__item__icon {
+	display: inline-block;
+	font-size: 32px;
+	margin-bottom: (@font-size-base / 2);
+}
+
+
+
+
+
+// Generic Buttons
+// ------------------------------
+
+.button {
+	.button-press();
+	background: white;
+	border: none;
+	border-radius: .3em;
+	color: @details-bg;
+	display: inline-block;
+	font-weight: bold;
+	line-height: 2.4;
+	padding-left: 1.25em;
+	padding-right: 1.25em;
+}
+
+
+
+
+
+// Type
+// ------------------------------
+
+.text-block {
+	font-size: @font-size-sm;
+	line-height: 1.3;
+}

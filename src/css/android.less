@@ -1,0 +1,442 @@
+//
+// Android
+// ==============================
+
+
+
+
+// Variables
+// ------------------------------
+
+@android-gutter:                 17px;
+
+
+
+
+// Base
+// ------------------------------
+
+.device--Android {
+	font-family: Roboto;
+
+	// attempt material design styles
+	.View {
+		background-color: white;
+		color: @gray-darker;
+	}
+
+
+	// Re-Colouring Views Components
+	// ------------------------------
+
+	// onboarding
+	.onboarding-heading-1 {
+		color: white;
+	}
+	.onboarding-form__button {
+		color: white;
+	}
+
+	// event info
+	.EventInfo {
+		color: white;
+	}
+	.EventInfo__hero-inner {
+		background: rgba(0, 0, 0, 0.5);
+	}
+	.EventInfo__organisers {
+		margin-bottom: 0;
+		padding-bottom: 2em;
+	}
+
+	// talks
+	.TalkDetails__speaker {
+		border-bottom: 1px solid @gray-lighter;
+
+		&::before,
+		&::after {
+			display: none;
+		}
+
+		&:first-child {
+			border-top: 1px solid @gray-lighter;
+		}
+
+		&.Tappable-active {
+			#gradient .horizontal-three-colors(fade(black,0%),fade(black,5%),50%,fade(black,0%));
+		}
+	}
+	.PersonDetails__talk {
+		background-color: @gray-lighter;
+		color: @gray-darker;
+
+		&.Tappable-active {
+			background-color: darken(@gray-lighter, 5%);
+		}
+	}
+	.PersonDetails__talk__time {
+		color: @gray;
+	}
+
+	// registration
+	.MeRegistration__intro {
+		color: @gray;
+	}
+	.MeRegistration__benefit__icon {
+		background-color: fade(@app-primary, 10%);
+	}
+
+	// no results
+	.no-results__icon,
+	.no-results__text {
+		color: #bbb;
+	}
+
+	// buton tables
+	.button-table,
+	.button-table .button-table__item {
+		border-color: @gray-lighter;
+		color: @gray-darker;
+
+		&.Tappable-active {
+			background-color: fade(@gray-lighter, 50%);
+		}
+	}
+
+	// misc.
+	.text-block {
+		color: @gray;
+	}
+	.panel {
+		background-color: #f6f6f6;
+	}
+	.field-label {
+		color: @gray;
+	}
+	.field {
+		color: @gray-darker;
+	}
+	.PersonDetails__public-indicator {
+		background-color: fade(@app-primary, 10%);
+	}
+
+
+	// Icon Manipulation
+	// ------------------------------
+
+	.ion-ios-star::before { content: @ionicon-var-android-star; }
+	.ion-ios-star-outline::before { content: @ionicon-var-android-star-outline; }
+	.ion-ios-search-strong::before { content: @ionicon-var-android-search; }
+	.ion-close-circled::before { content: @ionicon-var-android-close; }
+
+	.PersonItem__star::before { content: @ionicon-var-android-star-outline; }
+	.PersonItem__starred::before { content: @ionicon-var-android-star; }
+}
+
+// android view transition animations
+.device--Android {
+	.view-transition-show-from-right-enter {
+		.animation( fadeIn 200ms linear );
+	}
+	.view-transition-reveal-from-right-enter {
+		.animation( fadeInExpand 200ms linear );
+	}
+	.view-transition-show-from-right-leave,
+	.view-transition-reveal-from-right-leave {
+		.animation( fadeOut 200ms linear );
+	}
+}
+
+
+
+
+// Title Bar
+// ------------------------------
+
+
+// base styles hacking
+
+.device--Android {
+	// hide bottom border
+	.NavigationBar {
+		background-color: @app-primary;
+		color: white;
+
+		&::after {
+			display: none;
+		}
+	}
+
+	// change the button colours
+	.NavigationBarLeftButton,
+	.NavigationBarRightButton {
+		color: white;
+	}
+
+	// change to the android back arrow
+	.NavigationBarLeftArrow {
+		background: transparent;
+		width: 50px;
+
+		&::before {
+			content: @ionicon-var-android-arrow-back;
+		}
+	}
+	.NavigationBarLeftIcon {
+		display: block;
+		width: 50px;
+	}
+
+	// android doesn't have left labels
+	.NavigationBarLeftLabel {
+		display: none;
+	}
+	.NavigationBarTitle {
+		padding-left: @android-gutter;
+		text-align: left;
+	}
+	.NavigationBar.has-left-arrow .NavigationBarTitle,
+	.NavigationBar.has-left-icon .NavigationBarTitle {
+		padding-left: 50px;
+	}
+}
+
+// android titlebar transition animations are instant
+.device--Android {
+	.NavigationBarTransition-Instant-enter,
+	.NavigationBarTransition-Fade-enter,
+	.NavigationBarTransition-Forwards-enter,
+	.NavigationBarTransition-Backwards-enter  {
+		.animation( fadeIn 10ms linear );
+	}
+
+	.NavigationBarTransition-Instant-leave,
+	.NavigationBarTransition-Fade-leave,
+	.NavigationBarTransition-Forwards-leave,
+	.NavigationBarTransition-Backwards-leave  {
+		.animation( fadeOut 10ms linear );
+	}
+}
+
+
+
+
+// Headerbar Form (search)
+// ------------------------------
+
+.device--Android {
+	.Headerbar-form-field {
+		background-color: white;
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+		color: black;
+		padding: @headerbar-field-gutter;
+		z-index: 3;
+	}
+
+	// input
+	.Headerbar-form-input {
+		.placeholder( #999 );
+		background-color: transparent;
+
+		&:active {
+			background-color: rgba(255, 255, 255, 0.05);
+		}
+		&:focus {
+			background-color: rgba(255, 255, 255, 0.15);
+		}
+	}
+
+	// icons
+	.Headerbar-form-icon::before {
+		color: #999;
+	}
+	.Headerbar-form-clear {
+		color: #999;
+
+		&.Tappable-active {
+			color: #333;
+		}
+	}
+}
+
+
+
+
+// Lists
+// ------------------------------
+
+.device--Android {
+	// hide the list header borders
+	.ListHeader {
+		&::before,
+		&::after {
+			display: none;
+		}
+	}
+	.EventInfo__organisers,
+	.View--people,
+	.View--schedule {
+		background-color: #eee;
+		color: #666;
+
+		.ListItem {
+			background-color: white;
+			margin-bottom: 1px;
+
+			&.Tappable-active {
+				#gradient .horizontal-three-colors(fade(black,0%),fade(black,5%),50%,fade(black,0%));
+			}
+		}
+		.ListItem__heading {
+			color: black;
+		}
+		.ListHeader {
+			background-color: #eee;
+			color: #666;
+		}
+	}
+}
+
+
+
+
+// Tab Navigator
+// ------------------------------
+
+.device--Android {
+
+	// make the tabbar appear as a menu
+	.Tabs-Navigator-wrapper {
+		.transition( opacity 200ms );
+		background-color: rgba(0, 0, 0, 0.66);
+		display: block;
+		height: 100%;
+		left: 0;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 1;
+
+		// hide by default
+		visibility: hidden;
+		pointer-events: none;
+
+	}
+	.Tabs-Navigator {
+		.transition( all ease 200ms );
+		.translateX(-100%);
+		background-color: white;
+		bottom: 0;
+		box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.21);
+		color: black;
+		display: block;
+		height: auto;
+		left: 0;
+		position: absolute;
+		right: auto;
+		top: 0;
+		width: 66%;
+		z-index: 2;
+
+		// hide top border
+		&::after {
+			display: none;
+		}
+	}
+
+
+	// make the tabs look like menu items
+	.Tabs-Tab {
+		color: inherit;
+		display: block;
+		overflow: hidden;
+		padding: @android-gutter 0;
+		text-align: left;
+	}
+
+	// labels & icons
+	.Tabs-Icon,
+	.Tabs-Label {
+		color: inherit;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	// icons
+	.Tabs-Icon {
+		text-align: center;
+		width: 50px;
+	}
+
+	// labels
+	.Tabs-Label {
+		font-size: @font-size-base;
+	}
+
+	// update icons
+
+	// schedule
+	.is-selected > .Tabs-Icon--schedule::before,
+	.Tabs-Icon--schedule::before { content: @ionicon-var-android-time; }
+
+	// people
+	.is-selected > .Tabs-Icon--people::before,
+	.Tabs-Icon--people::before { content: @ionicon-var-android-people; }
+
+	// event
+	.is-selected > .Tabs-Icon--event::before,
+	.Tabs-Icon--event::before { content: @ionicon-var-android-star; }
+
+	// me
+	.is-selected > .Tabs-Icon--me::before,
+	.Tabs-Icon--me::before { content: @ionicon-var-android-contact; }
+}
+.android-menu-is-open .Tabs-Navigator-wrapper {
+	.translateX(0);
+	opacity: 1;
+	pointer-events: auto;
+	visibility: visible;
+}
+.android-menu-is-open .Tabs-Navigator {
+	.translateX(0);
+}
+
+
+
+
+// Misc
+// ------------------------------
+
+.device--Android {
+	.search-attendees-message {
+		color: #888;
+	}
+}
+
+
+
+
+// Animations
+// ------------------------------
+
+
+// fade in-expand
+
+@-webkit-keyframes fadeInExpand {
+	from { opacity: 0; -webkit-transform: scale(.96); }
+	to { opacity: 1; -webkit-transform: scale(1); }
+}
+@keyframes fadeInExpand {
+	from { opacity: 0; transform: scale(.96); }
+	to { opacity: 1; transform: scale(1); }
+}
+
+
+
+
+
+
+
+
+

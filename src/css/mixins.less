@@ -1,0 +1,33 @@
+// 
+// Mixins
+// ==============================
+
+
+
+
+// Avatars
+// ------------------------------
+
+.avatar(@size) {
+	.square(@size);
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 50%;
+	border: 3px solid @text-color;
+}
+
+
+
+
+// Buttons
+// ------------------------------
+
+.button-press(@scale: .95; @opacity: .9) {
+	.transition-transform( 80ms ease-in-out );
+
+	// on tap shrink the button to make it feel depressed
+	&.Tappable-active {
+		.scale(@scale);
+		opacity: @opacity;
+		outline: none;
+	}
+}

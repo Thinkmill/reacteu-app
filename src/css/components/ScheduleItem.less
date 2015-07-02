@@ -1,0 +1,81 @@
+// 
+// Schedule Item
+// extends "./ListItem"
+// ==============================
+
+
+// fade out past talks
+
+.ScheduleItem.is-past {
+	background-color: transparent;
+	opacity: .33;
+}
+
+
+// remove padding from the left of the content section
+
+.ScheduleItem__content {
+	padding-left: 0;
+	position: relative;
+}
+
+
+// provide spacing for the avatar + chevron
+	
+.ScheduleItem__avatar-chevron {
+	margin-left: 1em;
+}
+
+.ScheduleItem__now {
+	.square(6px);
+	background-color: @app-success;
+	border-radius: 50%;
+	display: block;
+	left: -11px;
+	position: absolute;
+	text-indent: -9999em;
+	top: 6px;
+	white-space: nowrap;
+}
+
+
+// heading
+
+.ScheduleItem-header-wrapper {
+	.ScheduleItem + & {
+		margin-top: -2px;
+	}
+}
+
+
+// alternative style for "non-talk" items
+// disable user interaction on non-talk items
+
+.ScheduleItem--break,
+.ScheduleItem--other {
+	background-color: fade(white, 10%);
+	padding-bottom: .5em;
+	padding-top: .6em;
+	pointer-events: none;
+
+	.ScheduleItem__content {
+		padding: 0;
+	}
+	.ListItem__heading,
+	.ListItem__text {
+		display: inline-block;
+	}
+	.ListItem__heading {
+		font-size: @font-size-sm;
+		float: right;
+	}
+}
+
+
+// speakers
+
+.ScheduleItem__avatar-img {
+	& + & {
+		margin-left: -30px;
+	}
+}

@@ -1,0 +1,138 @@
+// 
+// Footerbar
+// extends TouchstoneJS "Footerbar"
+// ==============================
+
+
+
+
+.Footerbar {
+	.retina-1px-border-top(rgba(255, 255, 255, 0.3));
+	background-color: @details-bg;
+}
+
+.Footerbar-button {
+	color: white;
+
+	// give visual feedback on a tap event
+	&.Tappable-active {
+		background-color: rgba(0, 0, 0, 0.1);
+	}
+
+	// selected view
+	&.active {
+		color: lighten(@app-primary, 33%);
+	}
+}
+.Footerbar-button-label {
+	color: inherit;
+}
+
+
+
+// ==============================
+// Tabs
+// ==============================
+
+
+// Base
+// ------------------------------
+
+.Tabs-Navigator {
+	.align-items(stretch);
+	.display-flex();
+	.retina-1px-border-top(rgba(255, 255, 255, 0.3));
+	.justify-content(space-around);
+	.backface-visibility(hidden);
+	background-color: @footerbar-bg;
+	color: white;
+	height: 44px;
+	width: 100%;
+
+	// stack above the views
+	position: relative;
+	z-index: @view-transition-stack-top;
+}
+
+
+// Tab Item
+// ------------------------------
+
+.Tabs-Tab {
+	.align-items(center);
+	.display-flex();
+	.flex-flow(column nowrap);
+	.flex-grow(1);
+	.justify-content(center);
+	background: none transparent;
+	border: 0 none;
+	color: white;
+	cursor: pointer; // for piece of mind when developing on the desktop
+	line-height: 1; // remove unexpected vertical white-space
+	padding: 0 5px;
+	position: relative;
+	width: 100%; // make each button take equal width
+	-webkit-appearance: none;
+	
+	// when pressed
+	&.Tappable-active {
+		background-color: rgba(0, 0, 0, 0.1);
+	}
+
+	// selected tab
+	&.is-selected {
+		color: lighten(@app-primary, 33%);
+	}
+}
+
+
+// label
+
+.Tabs-Label {
+	.text-overflow();
+	font-size: @font-size-xxs;
+}
+
+
+// icons
+
+.Tabs-Icon {
+	.ion();
+	font-size: 28px;
+
+}
+.Tabs-Icon--schedule::before {
+	content: @ionicon-var-ios-clock-outline;
+
+	.is-selected > & {
+		content: @ionicon-var-ios-clock;
+	}
+}
+.Tabs-Icon--people::before {
+	content: @ionicon-var-ios-people-outline;
+
+	.is-selected > & {
+		content: @ionicon-var-ios-people;
+	}
+}
+.Tabs-Icon--event::before {
+	content: @ionicon-var-ios-star-outline;
+
+	.is-selected > & {
+		content: @ionicon-var-ios-star;
+	}
+}
+.Tabs-Icon--me::before {
+	content: @ionicon-var-ios-contact-outline;
+
+	.is-selected > & {
+		content: @ionicon-var-ios-contact;
+	}
+}
+.Tabs-Icon--about::before {
+	content: @ionicon-var-ios-information-outline;
+
+	.is-selected > & {
+		content: @ionicon-var-ios-information;
+	}
+}

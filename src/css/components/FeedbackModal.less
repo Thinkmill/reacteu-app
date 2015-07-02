@@ -1,0 +1,260 @@
+//
+// Modal
+// ==============================
+
+
+
+
+// Dialog
+// ---------------------------
+
+.FeedbackModal-dialog {
+	background-color: fade(white, 96%);
+	border-radius: @border-radius-base;
+	bottom: 1em;
+	color: black;
+	left: 1em;
+	position: absolute;
+	right: 1em;
+	top: 1em;
+	z-index: @zindex-modal;
+}
+.FeedbackModal-dialog-enter {
+	.animation-name( modalDialogEnter );
+	.animation-duration( 260ms );
+	.animation-timing-function( cubic-bezier(0.500, -0.550, 0.400, 1.550) );
+}
+.FeedbackModal-dialog-leave {
+	.animation-duration( 260ms );
+	.animation-name( modalDialogLeave );
+}
+
+
+
+
+// Form
+// wrap and layout the components
+// ------------------------------
+
+.FeedbackModal__form {
+	.display-flex();
+	.flex-direction(column);
+	height: 100%;
+}
+
+
+
+
+// Header
+// ------------------------------
+
+@feedback-button-size: 60px;
+@feedback-button-bg:   #d8d8d8;
+
+
+// text
+
+.FeedbackModal__header {
+	padding: 1.5em 1em;
+	text-align: center;
+}
+.FeedbackModal__title {
+	font-weight: bold;
+	margin-bottom: .5em;
+}
+.FeedbackModal__subtitle {
+	font-size: @font-size-sm;
+}
+
+
+// buttons
+
+.FeedbackModal__buttons {
+	margin-top: 1em;
+	text-align: center;
+}
+.FeedbackModal__button {
+	.square( @feedback-button-size );
+	background-color: @feedback-button-bg;
+	border-radius: 50%;
+	display: inline-block;
+	margin: 0 15px;
+
+	&.Tappable-active {
+		background-color: darken(@feedback-button-bg, 10%);
+	}
+}
+.FeedbackModal__button--positive {
+	.ionicon(white, @ionicon-var-thumbsup, @ionicons-size-large);
+	line-height: @feedback-button-size;
+
+	&.is-selected {
+		background-color: @app-success;
+	}
+}
+.FeedbackModal__button--negative {
+	.ionicon(white, @ionicon-var-thumbsdown, @ionicons-size-large);
+	line-height: @feedback-button-size;
+
+	&.is-selected {
+		background-color: @app-danger;
+	}
+}
+
+
+
+
+// Body
+// ------------------------------
+
+// stretch the body/textarea to fill all availble space
+
+.FeedbackModal__body {
+	.flex(1,1,0);
+	position: relative;
+}
+.FeedbackModal__body__input {
+	background: none;
+	border: none;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 0;
+	height: 100%;
+	left: 0;
+	padding: 1em;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	-webkit-appearance: none;
+
+	&.has-value,
+	&:focus {
+		background-color: white;
+		outline: none;
+	}
+}
+
+
+
+
+// Footer
+// ------------------------------
+
+.FeedbackModal__footer {
+	.display-flex();
+	padding: 1em .5em;
+}
+.FeedbackModal__footer__button {
+	background: none;
+	border: none;
+	border-radius: @border-radius-small;
+	line-height: 2em;
+	margin-left: .5em;
+	margin-right: .5em;
+	padding-left: 1em;
+	padding-right: 1em;
+	text-align: center;
+}
+.FeedbackModal__footer__button--primary {
+	.flex(1,1,0);
+	background-color: @app-success;
+	color: white;
+	font-weight: 500;
+	-webkit-appearance: none;
+
+	&:active,
+	&:focus {
+		outline: none;
+	}
+
+	&.Tappable-active {
+		background-color: darken(@app-success, 10%);
+	}
+}
+.FeedbackModal__footer__button--disabled {
+	.flex(1,1,0);
+	background-color: rgba(0, 0, 0, 0.2);
+	color: white;
+	font-weight: 500;
+	-webkit-appearance: none;
+}
+.FeedbackModal__footer__button--link {
+	color: @gray;
+
+	&.Tappable-active {
+		background-color: rgba(0, 0, 0, 0.1);
+	}
+}
+
+
+
+
+// Backdrop
+// ------------------------------
+
+.FeedbackModal-backdrop {
+	.animation-duration( 140ms );
+	background-color: rgba(0, 0, 0, 0.66);
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: @zindex-modal-backdrop;
+}
+.FeedbackModal-backdrop-enter {
+	.animation-name( modalBackdropEnter );
+}
+.FeedbackModal-backdrop-leave {
+	.animation-delay( 240ms );
+	.animation-name( modalBackdropLeave );
+}
+
+
+
+
+// Animation
+// --------------------
+
+
+// modal dialog
+
+@-webkit-keyframes modalDialogEnter {
+	from { opacity: 0; -webkit-transform: scale( .96 ); }
+	to { opacity: 1; -webkit-transform: scale( 1 ); }
+}
+@keyframes modalDialogEnter {
+	from { opacity: 0; transform: scale( .96 ); }
+	to { opacity: 1; transform: scale( 1 ); }
+}
+
+@-webkit-keyframes modalDialogLeave {
+	from { opacity: 1; -webkit-transform: scale( 1 ); }
+	to { opacity: 0; -webkit-transform: scale( .8 ); }
+}
+@keyframes modalDialogLeave {
+	from { opacity: 1; transform: scale( 1 ); }
+	to { opacity: 0; transform: scale( .8 ); }
+}
+
+
+// modal backdrop
+
+@-webkit-keyframes modalBackdropEnter {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+@keyframes modalBackdropEnter {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@-webkit-keyframes modalBackdropLeave {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+@keyframes modalBackdropLeave {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+

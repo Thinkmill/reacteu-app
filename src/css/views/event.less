@@ -1,0 +1,210 @@
+//
+// Event Info
+// ==============================
+
+
+
+
+// Hero
+// ------------------------------
+
+.EventInfo__hero {
+	background: url("../img/venue-hero.jpg") no-repeat center top;
+	background-size: cover;
+	// height: 320px;
+	text-align: center;
+}
+
+// add a gradient over the image
+
+.EventInfo__hero-inner {
+	#gradient .vertical(fade(@details-bg, 10%),@details-bg, -20%, 90%);
+	height: 100%;
+	padding: 4em 2em 1.3em;
+	position: relative;
+	width: 100%;
+}
+
+
+.EventInfo__hero_subtitle {}
+.EventInfo__hero_title {
+	font-size: @font-size-xl;
+	font-weight: bold;
+	margin-bottom: 1em;
+	// margin-top: 1em;
+}
+.EventInfo__hero_address {
+	font-size: @font-size-xl;
+}
+
+
+// button
+
+.EventInfo__hero_button {
+	margin-bottom: 2em;
+	margin-top: 2em;
+}
+
+
+
+
+// Summary
+// ------------------------------
+
+.EventInfo__summary {
+	padding: 2em;
+}
+
+
+
+
+// Links (twitter/facebook)
+// ------------------------------
+
+// on tap highlight the icon to give the user feedback
+.EventInfo__link {
+	&.Tappable-active {
+		.EventInfo__link__icon--twitter { color: @twitter-brand; }
+		.EventInfo__link__icon--facebook { color: @facebook-brand; }
+	}
+}
+
+
+
+
+// Organisers
+// ------------------------------
+
+.EventInfo__organisers {
+	margin-bottom: 2em;
+
+	.ListHeader {
+		background-color: @details-bg;
+		line-height: 4;
+		text-align: center;
+	}
+}
+
+
+
+
+// Sponsors
+// ------------------------------
+
+
+// base
+
+.EventInfo__sponsors {
+	background-color: white;
+	color: #222;
+	padding: 2em 1em;
+	text-align: center;
+	
+	img {
+		.img-responsive();
+	}
+}
+.EventInfo__sponsors__heading {
+	font-weight: bold;
+}
+
+
+// tiers
+
+.EventInfo__sponsors__tier {
+	margin-top: 3em;
+	position: relative;
+
+	// line
+	&::before {
+		background-color: rgba(0, 0, 0, 0.1);
+		content: " ";
+		left: 0;
+		height: 1px;
+		position: absolute;
+		top: 50%;
+		width: 100%;
+	}
+}
+.EventInfo__sponsors__tier-text {
+	background-color: white;
+	display: inline-block;
+	padding-left: 1em;
+	padding-right: 1em;
+	position: relative;
+	z-index: 1;
+}
+
+
+// primary sponsors
+
+.EventInfo__sponsor--diamond,
+.EventInfo__sponsor--platinum,
+.EventInfo__sponsor--gold,
+.EventInfo__sponsor--silver,
+.EventInfo__sponsor--platinum {
+
+	.EventInfo__sponsor__image {
+		margin: 2em;
+	}
+	.EventInfo__sponsor__text {
+		font-size: @font-size-sm;
+		line-height: 1.3;
+		text-align: left;
+	}
+}
+.EventInfo__sponsor__button {
+	border-radius: .25em;
+	display: block;
+	line-height: 2.3;
+	margin-top: 1em;
+
+	&.Tappable-active {
+		background-color: rgba(0, 0, 0, 0.05);
+	}
+}
+.EventInfo__sponsor__button--link {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	font-weight: 500;
+}
+
+
+// bronze sponsors
+
+// .EventInfo__sponsor--bronze {
+// 	display: block;
+// 	padding: 1em;
+// }
+
+
+// startup sponsors
+
+.EventInfo__sponsor--bronze,
+.EventInfo__sponsor--supporter,
+.EventInfo__sponsor--startup {
+	display: inline-block;
+	padding: 1em;
+	text-align: center;
+	vertical-align: middle;
+	width: 50%;
+}
+
+// .EventInfo__sponsor--supporter {
+// 	width: 50%;
+// }
+
+
+// // supporting sponsors
+
+// .EventInfo__sponsor--startup {
+// 	width: 33.33%;
+// }
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,325 @@
+// 
+// Onboarding
+// ==============================
+
+
+
+// View BG
+// ------------------------------
+
+.View--onboarding,
+.View--onboarding-resend-email,
+.View--onboarding-enter-code {
+	#gradient .vertical(spin(@body-bg, -12%), spin(@body-bg, 10%));
+}
+
+
+
+// TODO: ViewManager - move this later
+// ------------------------------
+
+.ViewManager {
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+}
+
+
+
+// TODO: generic animations
+// ------------------------------
+
+.animation-fade-enter {
+	.animation( fadeIn 320ms linear );
+}
+.animation-fade-leave {
+	.animation( fadeOut 320ms linear );
+}
+
+
+
+// TODO: move this to touchstone
+// ------------------------------
+
+.panel {
+	text-align: left;
+}
+
+
+
+// Layout
+// ------------------------------
+
+// header
+
+.onboarding-header {
+	line-height: 1.3;
+}
+
+
+// footer
+
+.onboarding-footer {
+	border-top: 1px solid mix(white, spin(@body-bg, 10%), 15%);
+	font-size: @font-size-sm;
+	font-weight: 500;
+	line-height: 60px;
+	height: 60px;
+	padding: 1px;
+}
+
+.onboarding-footer__button {
+	.transition-transform( 40ms linear );
+	.flex(1,1,0);
+	color: white;
+	white-space: nowrap;
+
+	&.Tappable-active {
+		background-color: fade(black, 10%);
+		box-shadow: inset 0 2px 10px -5px rgba(0, 0, 0, 0.1);
+	}
+
+	& + & {
+		border-left: 1px solid mix(white, spin(@body-bg, 10%), 15%);
+	}
+}
+
+
+
+
+// Type
+// ------------------------------
+
+
+// common
+
+.onboarding-heading {}
+
+// H1
+
+.onboarding-heading-1 {
+	font-size: 24px;
+}
+
+// H2
+
+.onboarding-heading-2 {
+	color: rgba(255, 255, 255, 0.75);
+	font-size: 18px;
+}
+
+
+
+
+// Logo
+// ------------------------------
+
+.onboarding-logo {
+	margin-bottom: 2em;
+	width: 90px;
+}
+
+
+
+
+// Scan Button
+// ------------------------------
+
+@scanbutton-image-size: 48px;
+@scanbutton-icon-size: 48px;
+
+.onboarding-scan-wrapper {
+	.square(170px);
+	display: block;
+	max-width: 50%;
+	position: relative;
+	text-align: center;
+}
+.onboarding-scan {
+	position: absolute; // so it transitions nicely when switching between online/offline
+}
+.onboarding-scan__button {
+	.button-press();
+	.square(100px);
+	background-color: white;
+	border-radius: 50%;
+	display: inline-block;
+	margin-bottom: 1em;
+	position: relative;
+}
+.onboarding-scan__image,
+.onboarding-scan__icon {
+	.square(@scanbutton-icon-size);
+	display: inline-block;
+	left: 50%;
+	position: absolute;
+	top: 50%;
+
+	> svg {
+		.square(@scanbutton-icon-size);
+		fill: @app-primary;
+	}
+}
+
+.onboarding-scan__image {
+	.square(@scanbutton-image-size);
+	display: inline-block;
+	margin-left: -(@scanbutton-image-size / 2);
+	margin-top: -(@scanbutton-image-size / 2);
+
+	> svg {
+		.square(@scanbutton-image-size);
+		fill: @app-primary;
+	}
+}
+.onboarding-scan__icon {
+	.square(@scanbutton-icon-size);
+	color: @app-primary;
+	display: inline-block;
+	font-size: @scanbutton-icon-size;
+	margin-left: -(@scanbutton-icon-size / 2);
+	margin-top: -(@scanbutton-icon-size / 2);
+
+	&.is-loading {
+		.animation( spin 1s linear infinite );
+		opacity: .5;
+	}
+	&.is-valid {
+		color: @app-success;
+	}
+}
+
+
+// accompanying text that sits beneath the button
+
+.onboarding-scan__text {
+	color: rgba(255, 255, 255, 0.75);
+}
+
+
+
+
+// Form
+// ------------------------------
+
+@form-component-size: 48px;
+
+
+// base
+
+.onboarding-form {
+	.display-flex();
+}
+
+
+// sections
+
+.onboarding-form__section {
+	padding-left: .5em;
+	padding-right: .5em;
+
+	&:first-child { padding-left: 0; }
+	&:last-child { padding-right: 0; }
+}
+.onboarding-form__section--field {
+	.flex(1,1,0);
+}
+
+
+// input
+
+.onboarding-form__input {
+	.placeholder(rgba(255, 255, 255, 0.5));
+	background: none;
+	border: none;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 0;
+	color: white;
+	font-size: 18px;
+	line-height: 1.2;
+	height: @form-component-size;
+	padding: 0;
+	width: 100%;
+	-webkit-appearance: none;
+
+	&:active,
+	&:hover,
+	&:focus {
+		outline: none;
+	}
+}
+
+
+// button
+
+.onboarding-form__button {
+	.square(@form-component-size);
+	background: none;
+	border-radius: 50%;
+	border: 3px solid currentColor;
+	color: white;
+	line-height: 0;
+	outline: none;
+	-webkit-appearance: none;
+
+	// icon begins as an arrow pointing right
+	.ionicon(inherit, @ionicon-var-arrow-right-c, 32px);
+
+	// update the icon to a spinner
+	&.is-loading {
+		.animation( spin 1s linear infinite );
+
+		&::before {
+			content: @ionicon-var-load-b;
+			color: rgba(255, 255, 255, 0.75);
+		}
+	}
+
+	// update the icon to a green checkmark if valid
+	&.is-valid::before {
+		content: @ionicon-var-ios-checkmark;
+		color: mix(@app-success, white, 50%);
+	}
+
+	// update the icon to a red cross if invalid
+	&.is-invalid::before {
+		content: @ionicon-var-ios-close;
+		color: mix(@app-danger, white, 50%);
+	}
+}
+
+
+
+
+// Form Feedback
+
+.onboarding-feedback {
+	.animation( fadeIn 300ms );
+	background-color: white;
+	border-left: 4px solid transparent;
+	border-radius: .25em;
+	font-weight: 500;
+	line-height: 1.3;
+	margin-top: 2em;
+	padding: .5em 1em;
+	text-align: left;
+}
+.onboarding-feedback--danger {
+	color: @app-danger;
+	border-left-color: @app-danger;
+}
+.onboarding-feedback--success {
+	color: @app-success;
+	border-left-color: @app-success;
+}
+
+
+
+
+
+
+
+
+
+
