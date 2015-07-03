@@ -1,7 +1,8 @@
-# reacteu-app
+# ReactEU Mobile App
 
-ReactEurope Mobile App
+ReactEurope Mobile App, built with [TouchstoneJS](http://touchstonejs.io)
 
+Full Instructions and documentation coming as soon as we can publish them after the conference :)
 
 ### Instructions
 
@@ -25,3 +26,7 @@ npm run build
 cordova platform add android
 cordova run android
 ```
+
+## License
+
+Copyright (c) 2015 Thinkmill. Made available under The MIT License (MIT).
