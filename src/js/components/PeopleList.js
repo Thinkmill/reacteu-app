@@ -22,10 +22,10 @@ module.exports = React.createClass({
 	render () {
 		if (!this.props.people.length) return null;
 
-		var people = this.props.people.sort((a, b) => { return a.name.localeCompare(b.name) })
-		var previousView = this.props.previousView
+		var people = this.props.people;
+		var previousView = this.props.previousView;
 		var items = people.map(function (person, i) {
-			return <PeopleItem key={'person_' + i} person={person} previousView={previousView} />
+			return <PeopleItem key={'person_' + i} person={person} previousView={previousView} />;
 		});
 
 		var heading = this.props.heading ? <ListHeader sticky={this.props.headingIsSticky}>{this.props.heading}</ListHeader> : null;
