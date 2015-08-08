@@ -85,11 +85,13 @@ module.exports = React.createClass({
 			var finished = timeNow > new Date(scheduleItem.endTime).getTime();
 			var onNow = begun && !finished;
 
+			// note: real-time integration is disabled now the event is over
+
 			currentDay.items.push({
 				details: scheduleItem,
-				begun: begun,
-				finished: finished,
-				onNow: onNow
+				begun: false, // begun,
+				finished: false, // finished,
+				onNow: false // onNow
 			});
 		});
 
