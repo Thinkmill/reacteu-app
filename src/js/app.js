@@ -11,9 +11,9 @@ var {
 
 var DataStore = require('./stores/DataStore');
 var dataStore = new DataStore();
-window.dataStore = dataStore
+window.dataStore = dataStore;
 
-var device = require('./lib/device')
+var device = require('./lib/device');
 
 function hideSplashScreen () {
 	try {
@@ -95,7 +95,7 @@ var App = React.createClass({
 	getInitialState () {
 		return {
 			defaultView: dataStore.amRegistered() ? 'main' : 'onboarding'
-		}
+		};
 	},
 
 	componentDidMount () {
@@ -156,8 +156,7 @@ var MainViewController = React.createClass({
 	}
 });
 
-// XXX: needed
-var lastSelectedTab = 'me'
+var lastSelectedTab = 'me';
 var TabViewController = React.createClass({
 	contextTypes: { dataStore: React.PropTypes.object.isRequired },
 	mixins: [Sentry()],
@@ -176,15 +175,14 @@ var TabViewController = React.createClass({
 		// android backbutton handler
 		this.watch(document, 'backbutton', () => {
  				var body = document.getElementsByTagName('body')[0];
-
  				body.classList.remove('android-menu-is-open');
-		})
+		});
 
 		this.watch(dataStore, 'update-settings', this.updateTabState);
 	},
 
 	onViewChange (nextView) {
-		lastSelectedTab = nextView
+		lastSelectedTab = nextView;
 
 		this.setState({
 			selectedTab: nextView
@@ -194,7 +192,7 @@ var TabViewController = React.createClass({
 	updateTabState (settings) {
 		this.setState({
 			showAboutView: settings.showAboutView
-		})
+		});
 	},
 
 	selectTab (tab) {
@@ -282,4 +280,3 @@ if (window.cordova) {
 } else {
 	startApp();
 }
-
