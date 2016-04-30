@@ -126,6 +126,7 @@ DataStore.prototype.__preprocess = function (data) {
 	if (data.Proposals && this.cache.speakers.length === 0) {
 		var feedback = this.cache.feedback;
 		var speakers = this.cache.speakers;
+    var talks = this.cache.Proposals;
 		if (!feedback) {
 			feedback = this.cache.feedback = {};
 		}
@@ -138,7 +139,24 @@ DataStore.prototype.__preprocess = function (data) {
 			talk.feedback = feedback[talk.id];
 			if (talk.speakers) {
 				talk.speakers.forEach(speaker => {
-					speakers.push(speaker);
+          var duplicate = false;
+          this.cache.speakers.forEach((cachedSpeaker) => {
+            if (cachedSpeaker.email === speaker.email) {
+              duplicate = true;
+            }
+          });
+          if (!duplicate) {
+            speaker.talks = talks.filter(talk => {
+              var isSpeaker = false;
+              talk.speakers && talk.speakers.filter((talkSpeaker) => {
+                if (speaker.email === talkSpeaker.email) {
+                  isSpeaker = true;
+                }
+              });
+              return isSpeaker;
+            });
+            speakers.push(speaker);
+          }
 				});
 			}
 		});
