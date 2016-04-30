@@ -180,8 +180,7 @@ module.exports = React.createClass({
 	renderSpeakers () {
 		var previousView = this.props.previousView;
 		var dataStore = this.context.dataStore;
-		var speakerIds = this.props.talk.speakers;
-		var speakers = speakerIds.map(speakerId => dataStore.getPerson(speakerId)).filter(speaker => speaker);
+		var speakers = this.props.talk.speakers || [];
 		var self = this;
 
 		return speakers.map(function (speaker, i) {
@@ -195,12 +194,12 @@ module.exports = React.createClass({
 			// otherwise we create a weird loop
 			return previousView === 'person' ? (
 				<div className="TalkDetails__speaker" key={'speaker' + i}>
-					<img src={speaker.picture} className="TalkDetails__speaker__avatar" />
+					<img src={speaker.picture || speaker.avatar_url} className="TalkDetails__speaker__avatar" />
 					<div className="TalkDetails__speaker__name">{speaker.name}</div>
 				</div>
 			) : (
 				<Link key={'speaker' + i} to="main:person" transition="show-from-right" className="TalkDetails__speaker" viewProps={viewProps} component="div">
-					<img src={speaker.picture} className="TalkDetails__speaker__avatar" />
+					<img src={speaker.picture || speaker.avatar_url} className="TalkDetails__speaker__avatar" />
 					<div className="TalkDetails__speaker__name">{speaker.name}</div>
 					<span className="ion-chevron-right" />
 				</Link>
@@ -210,7 +209,7 @@ module.exports = React.createClass({
 
 	render () {
 		var talk = this.props.talk;
-		var talkTime = moment(talk.startTime).utcOffset('+0200').format('h:mma');
+		var talkTime = moment(talk.start_date).utcOffset('+0200').format('h:mma');
 
 		// handle feedback button / icon state
 		var feedbackButtonClass = classnames('TalkDetails__button', 'button-table__item', {
@@ -250,4 +249,3 @@ module.exports = React.createClass({
 		);
 	}
 });
-

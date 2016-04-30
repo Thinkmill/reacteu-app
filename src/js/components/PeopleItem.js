@@ -7,7 +7,7 @@ module.exports = React.createClass({
 	displayName: 'PeopleItem',
 
 	render () {
-		var person = this.props.person;
+		var person = this.props.person
 		var bio = person.bio
 		if (bio.length > 50) bio = bio.slice(0, 50) + '...'
 
@@ -19,7 +19,7 @@ module.exports = React.createClass({
 
 		return (
 			<Link to="main:person" transition="show-from-right" viewProps={{ person: person, previousView: this.props.previousView }} className="ListItem Person" component="div">
-				<img src={person.picture} className="ListItem__avatar PersonItem__avatar" />
+				<img src={person.picture || person.avatar_url || person.pic_url} className="ListItem__avatar PersonItem__avatar" />
 				<div className="ListItem__content">
 					<div className="ListItem__heading">
 						{person.name}
@@ -32,4 +32,3 @@ module.exports = React.createClass({
 		);
 	}
 });
-

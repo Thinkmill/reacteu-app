@@ -61,11 +61,13 @@ module.exports = React.createClass({
 		var fillMessage = (!person.bio && !github && !twitter) ? <div style={{ lineHeight: '1.4', marginTop: '1em', fontSize: '0.85em' }}>Tap edit to complete your profile and connect with other attendees</div> : null;
 		var qrUrl = 'https://chart.googleapis.com/chart?cht=qr&chl=' + ticketCode + '&chs=400x400'
 
-		var content = (person && person.name) ? (
+		var content = (person && person.first_name) ? (
 			<Container scrollable ref="scrollContainer">
 				<div className="PersonDetails">
-					<img src={person.picture} className="PersonDetails__avatar" />
-					{person.name && <div className="PersonDetails__heading">{person.name}</div>}
+					{(person.picture || person.avatar_url || person.pic_url) ? (
+						<img src={person.picture || person.avatar_url || person.pic_url} className="PersonDetails__avatar" />
+					) : null}
+					{person.first_name && <div className="PersonDetails__heading">{person.first_name} {person.last_name}</div>}
 					{publicIndicator}
 					{fillMessage}
 					{person.bio && <div className="PersonDetails__text text-block">{person.bio}</div>}
@@ -83,8 +85,8 @@ module.exports = React.createClass({
 		) : (
 			<Container direction="column">
 				<Container fill align="center" justify="center" direction="column" scrollable className="MeRegistration__body">
-					<div className="MeRegistration__heading">ReactEurope 2015</div>
-					<p className="MeRegistration__intro">Register to get the most out of ReactEurope&nbsp;2015!</p>
+					<div className="MeRegistration__heading">ReactEurope 2016</div>
+					<p className="MeRegistration__intro">Register to get the most out of ReactEurope&nbsp;2016!</p>
 					<div className="MeRegistration__benefits">
 						<div className="MeRegistration__benefit">
 							<div className="MeRegistration__benefit__icon ion-qr-scanner" />
@@ -109,4 +111,3 @@ module.exports = React.createClass({
 		return content;
 	}
 });
-

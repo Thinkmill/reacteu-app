@@ -18,8 +18,8 @@ var TIER_PRIORITIES = {
 	'gold': 2,
 	'silver': 3,
 	'bronze': 4,
-	'startup': 5,
-	'supporter': 6
+	'basic': 5,
+	'partner': 6
 };
 
 const scrollable = Container.initScrollable();
@@ -57,7 +57,7 @@ module.exports = React.createClass({
 		menuWrapper.addEventListener('click', function(e) {
 			body.classList.remove('android-menu-is-open');
 		});
-		
+
 		this.watch(emitter, 'navigationBarLeftAction', function () {
 			body.classList.toggle('android-menu-is-open');
 		});
@@ -84,7 +84,7 @@ module.exports = React.createClass({
 		function orderByPriority (sponsor1, sponsor2) {
 			return TIER_PRIORITIES[sponsor1.tier] - TIER_PRIORITIES[sponsor2.tier];
 		}
-
+		console.log(sponsorData);
 		var lastTier;
 		sponsorData.sort(orderByPriority).forEach(function (sponsor, i) {
 			var tierName = capitalize(sponsor.tier);
@@ -101,7 +101,7 @@ module.exports = React.createClass({
 				lastTier = tierName;
 			}
 
-			sponsors.push(<Sponsor key={'sponsor' + i} { ... sponsor} lite={lite} />)
+			sponsors.push(<Sponsor key={'sponsor' + i} image={sponsor.LogoUrl} { ... sponsor} lite={lite} />)
 		});
 
 		// Social
@@ -139,4 +139,3 @@ module.exports = React.createClass({
 		);
 	}
 });
-

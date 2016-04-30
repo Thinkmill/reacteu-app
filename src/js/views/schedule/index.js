@@ -74,24 +74,22 @@ module.exports = React.createClass({
 		var timeNow = this.state.timeNow;
 
 		this.state.schedule.forEach(function (scheduleItem, i) {
-			var itemDayName = moment(scheduleItem.startTime).utcOffset('+0200').format('dddd');
+			var itemDayName = moment(scheduleItem.start_date).utcOffset('+0200').format('dddd');
 
 			if (!currentDay || currentDay.name !== itemDayName) {
 				currentDay = { name: itemDayName, items: [] };
 				days.push(currentDay);
 			}
 
-			var begun = timeNow > new Date(scheduleItem.startTime).getTime();
+			var begun = timeNow > new Date(scheduleItem.start_date).getTime();
 			var finished = timeNow > new Date(scheduleItem.endTime).getTime();
 			var onNow = begun && !finished;
 
-			// note: real-time integration is disabled now the event is over
-
 			currentDay.items.push({
 				details: scheduleItem,
-				begun: false, // begun,
-				finished: false, // finished,
-				onNow: false // onNow
+				begun: begun,
+				finished: finished,
+				onNow: onNow
 			});
 		});
 

@@ -47,3 +47,4 @@ ant-build
 ant-gen
 gen
 out
+src/js/stores/secret.json

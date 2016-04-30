@@ -33,10 +33,10 @@ module.exports = React.createClass({
 			'is-past': this.props.finished
 		}, ('ScheduleItem--' + talk.type));
 		var avatarWrapperClassName = classnames('ScheduleItem__avatar', {
-			'ScheduleItem__avatar--multiple': talk.speakers.length > 1
+			'ScheduleItem__avatar--multiple': talk.speakers && talk.speakers.length > 1
 		});
-		var renderTheDisclosureArrow = (talk.type === 'talk') ? <span className="ScheduleItem__avatar-chevron ion-chevron-right" /> : null;
-		var startTime = moment(talk.startTime).utcOffset('+0200').format('h:mma')
+		var renderTheDisclosureArrow = (talk.type <= 1) ? <span className="ScheduleItem__avatar-chevron ion-chevron-right" /> : null;
+		var startTime = moment(talk.start_date).utcOffset('+0200').format('h:mma')
 
 		return (
 			<Link to="main:talk" transition="show-from-right" viewProps={{ talk: talk }} className={linkClassName} component="div">
@@ -46,11 +46,10 @@ module.exports = React.createClass({
 					<div className="ListItem__heading ScheduleItem__heading">{talk.title}</div>
 				</div>
 				<div className={avatarWrapperClassName}>
-					{this.renderSpeakers()}
+					{(talk.speakers) ? this.renderSpeakers() : null}
 					{renderTheDisclosureArrow}
 				</div>
 			</Link>
 		);
 	}
 });
-

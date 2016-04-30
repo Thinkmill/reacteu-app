@@ -52,7 +52,7 @@ module.exports = React.createClass({
 		if (this.props.previousView === 'talk') {
 			gotoView = 'main:talk';
 		}
-			
+
 		// android backbutton handler
 		this.watch(document, 'backbutton', function () {
 			self.transitionTo(gotoView, {
@@ -88,7 +88,7 @@ module.exports = React.createClass({
 				previousViewProps: this.props,
 				talk: talk
 			}
-			var talkTime = moment(talk.startTime).utcOffset('+0200').format('h:mma')
+			var talkTime = moment(talk.start_date).utcOffset('+0200').format('h:mma')
 
 			return (
 				<Link key={'talk_' + i} to="main:talk" transition="show-from-right" viewProps={viewProps} className="Footerbar PersonDetails__talk" component="div">
@@ -110,7 +110,7 @@ module.exports = React.createClass({
 		return (
 			<Container direction="column">
 				<Container fill scrollable ref="scrollContainer" className="PersonDetails">
-					<img src={person.picture} className="PersonDetails__avatar" />
+					<img src={person.picture || person.avatar_url || person.pic_url} className="PersonDetails__avatar" />
 					<div className="PersonDetails__heading">{person.name}</div>
 					<div className="PersonDetails__text text-block">{person.bio}</div>
 					{(person.twitter || person.github) && <div className="PersonDetails__profiles">
@@ -123,4 +123,3 @@ module.exports = React.createClass({
 		);
 	}
 });
-

@@ -51,26 +51,29 @@ module.exports = React.createClass({
 				<div className="About-section">
 					<div className="About__subheading">Project Team</div>
 					<div className="About__team About__list">
-						<div className="About__team__member About__list__item">
+						<a href="https://twitter.com/borisbozic" className="About__team__member About__list__item">
 							<img src="./img/team/boris-bozic.jpeg" alt="Boris Bozic" />
 							Boris
-						</div>
-						<div className="About__team__member About__list__item">
+						</a>
+						<a href="https://twitter.com/DanCuzns" className="About__team__member About__list__item">
 							<img src="./img/team/daniel-cousens.jpg" alt="Daniel Cousens" />
 							Daniel
-						</div>
-						<div className="About__team__member About__list__item">
+						</a>
+						<a href="https://twitter.com/JedWatson" className="About__team__member About__list__item">
 							<img src="./img/team/jed-watson.png" alt="Jed Watson" />
 							Jed
-						</div>
-						<div className="About__team__member About__list__item">
+						</a>
+						<a href="https://twitter.com/JossMackison" className="About__team__member About__list__item">
 							<img src="./img/team/joss-mackison.png" alt="Joss Mackison" />
 							Joss
-						</div>
+						</a>
+						<a href="https://twitter.com/mxstbr" className="About__team__member About__list__item">
+							<img src="./img/team/max-stoiber.jpg" alt="Max Stoiber" />
+							Max
+						</a>
 					</div>
 				</div>
 			</Container>
 		);
 	}
 });
-
