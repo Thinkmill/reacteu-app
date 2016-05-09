@@ -48,8 +48,8 @@ module.exports = React.createClass({
 	getInitialState () {
 		return {
 			feedbackModalIsVisible: false,
-			feedbackType: this.props.talk.feedback.type || '',
-			feedbackText: this.props.talk.feedback.text || '',
+			feedbackType: this.props.feedback && this.props.talk.feedback.type || '',
+			feedbackText: this.props.feedback && this.props.talk.feedback.text || '',
 			online: window.navigator.onLine
 		};
 	},
