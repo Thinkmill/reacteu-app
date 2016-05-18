@@ -275,13 +275,22 @@ DataStore.prototype.synchronize = function (callback) {
 // Unsynchronized, non external API functions
 DataStore.prototype.star = function (id, starred) {
 	this.cache.starred[id] = starred;
+	var foundStarredPerson = false;
 
 	// update people cache
-	this.cache.people.forEach(function (person) {
-		if (person.id !== id) return;
-
+	this.cache.speakers.forEach(function (person) {
+		if (person.id !== id || foundStarredPerson) return;
+		foundStarredPerson = true;
 		person.starred = starred;
 	});
+
+	if (!foundStarredPerson) {
+		this.cache.organisers.forEach(function (person) {
+			if (person.id !== id || foundStarredPerson) return;
+			foundStarredPerson = true;
+			person.starred = starred;
+		});
+	}
 
 	window.localStorage.starred = JSON.stringify(this.cache.starred);
 };
@@ -290,7 +299,7 @@ DataStore.prototype.amRegistered = function () { return !!this.cache.me };
 DataStore.prototype.getAttendees = function () { return [] };
 DataStore.prototype.getMe = function () { return this.cache.me };
 DataStore.prototype.getOrganisers = function () { return this.cache.organisers };
-DataStore.prototype.getPerson = function (id) { return this.cache.people.filter(person => person.id === id).pop() };
+DataStore.prototype.getPerson = function (id) { return this.cache.speakers.filter(person => person.id === id).pop() };
 DataStore.prototype.getPeople = function () { return this.cache.people };
 DataStore.prototype.getSchedule = function () { return this.cache.Proposals.sort((a, b) => new Date(a.start_date) - new Date(b.start_date)) };
 DataStore.prototype.getSettings = function () { return this.cache.settings };
