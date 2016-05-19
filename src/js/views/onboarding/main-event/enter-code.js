@@ -20,6 +20,7 @@ module.exports = React.createClass({
 				id="main-event"
 				onCodeEnter={this.onCodeEnter}
 				nextScreen="app:main"
+				title="Main Event"
 			/>
 		);
 	}

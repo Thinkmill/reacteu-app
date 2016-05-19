@@ -140,6 +140,7 @@ var OnboardingView = React.createClass({
 		return (
 			<Container direction="column" className="onboarding-container">
 				<OnboardingHeader />
+				<h2 className="onboarding-heading-1">{this.props.title}</h2>
 				<Container justify align="center" direction="column" className="onboarding-body">
 					{this.renderScanButton()}
 				</Container>

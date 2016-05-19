@@ -9,6 +9,7 @@ module.exports = React.createClass({
 	mixins: [Transitions],
 	contextTypes: { dataStore: React.PropTypes.object.isRequired },
   propTypes: {
+		title: React.PropTypes.string,
     id: React.PropTypes.string.isRequired,
     nextScreen: React.PropTypes.string.isRequired,
 		onCodeEnter: React.PropTypes.func.isRequired
@@ -96,6 +97,7 @@ module.exports = React.createClass({
 		return (
 			<Container direction="column" className="onboarding-container">
 				<OnboardingHeader />
+				<h2 className="onboarding-heading-1">{this.props.title}</h2>
 				<Container justify align="center" direction="column">
 					<form onSubmit={this.handleFormSubmission} action="#" className="onboarding-form" noValidate>
 						<div className="onboarding-form__section onboarding-form__section--field">
