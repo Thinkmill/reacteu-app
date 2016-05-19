@@ -1,9 +1,9 @@
 var Sentry = require('react-sentry');
 var React = require('react/addons');
 
-var { Transitions } = require('../../touchstone');
+var { Transitions } = require('../../../touchstone');
 
-var OnboardingView = require('../../components/Onboarding');
+var OnboardingView = require('../../../components/Onboarding');
 
 var MainEventOnboarding = React.createClass({
 	mixins: [Sentry(), Transitions],

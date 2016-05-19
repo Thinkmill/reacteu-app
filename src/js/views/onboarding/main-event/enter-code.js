@@ -1,7 +1,7 @@
 var React = require('react');
-var { Transitions } = require('../../touchstone');
+var { Transitions } = require('../../../touchstone');
 
-var OnboardingEnterCode = require('../../components/Onboarding/enter-code');
+var OnboardingEnterCode = require('../../../components/Onboarding/enter-code');
 
 module.exports = React.createClass({
 	mixins: [Transitions],

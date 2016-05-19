@@ -129,9 +129,9 @@ var App = React.createClass({
 			<div className={appWrapperClassName}>
 				<div className="device-silhouette">
 					<ViewManager ref="vm" name="app" defaultView={this.state.defaultView}>
-						<View name="onboarding-main-event" component={require('./views/onboarding/index')} />
-						<View name="onboarding-main-event-resend-email" component={require('./views/onboarding/resend-email')} />
-						<View name="onboarding-main-event-enter-code" component={require('./views/onboarding/enter-code')} />
+						<View name="onboarding-main-event" component={require('./views/onboarding/main-event/index')} />
+						<View name="onboarding-main-event-resend-email" component={require('./views/onboarding/main-event/resend-email')} />
+						<View name="onboarding-main-event-enter-code" component={require('./views/onboarding/main-event/enter-code')} />
 						<View name="main" component={MainViewController} />
 						<View name="announcement" component={require('./views/announcement')} />
 					</ViewManager>
