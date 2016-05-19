@@ -132,6 +132,12 @@ var App = React.createClass({
 						<View name="onboarding-main-event" component={require('./views/onboarding/main-event/index')} />
 						<View name="onboarding-main-event-resend-email" component={require('./views/onboarding/main-event/resend-email')} />
 						<View name="onboarding-main-event-enter-code" component={require('./views/onboarding/main-event/enter-code')} />
+						<View name="onboarding-workshop" component={require('./views/onboarding/workshop/index')} />
+						<View name="onboarding-workshop-resend-email" component={require('./views/onboarding/workshop/resend-email')} />
+						<View name="onboarding-workshop-enter-code" component={require('./views/onboarding/workshop/enter-code')} />
+						<View name="onboarding-hackathon" component={require('./views/onboarding/hackathon/index')} />
+						<View name="onboarding-hackathon-resend-email" component={require('./views/onboarding/hackathon/resend-email')} />
+						<View name="onboarding-hackathon-enter-code" component={require('./views/onboarding/hackathon/enter-code')} />
 						<View name="main" component={MainViewController} />
 						<View name="announcement" component={require('./views/announcement')} />
 					</ViewManager>

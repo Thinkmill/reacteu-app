@@ -110,8 +110,8 @@ module.exports = React.createClass({
 				</Container>
 				<Container justify align="center" direction="row" className="onboarding-footer">
 					{this.renderResendEmail()}
-					<Link to={this.props.nextScreen} transition="fade" className="onboarding-footer__button">Skip</Link>
-					<Link to={"app:onboarding-" + this.props.id} transition="fade" className="onboarding-footer__button onboarding-footer__button--primary">Back</Link>
+					<Link to={this.props.nextScreen} transition={this.props.transition || "fade"} className="onboarding-footer__button">Skip</Link>
+					<Link to={"app:onboarding-" + this.props.id} transition="show-from-left" className="onboarding-footer__button onboarding-footer__button--primary">Back</Link>
 				</Container>
 			</Container>
 		);

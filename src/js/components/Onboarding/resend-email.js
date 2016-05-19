@@ -88,9 +88,9 @@ module.exports = React.createClass({
 					</form>
 				</Container>
 				<Container justify align="center" direction="row" className="onboarding-footer">
-					<Link to={"app:onboarding-" + this.props.id} transition="fade" className="onboarding-footer__button">Back</Link>
-					<Link to={this.props.nextScreen} transition="fade" className="onboarding-footer__button">Skip</Link>
-					<Link to={"app:onboarding-" + this.props.id + "-enter-code"} transition="fade" className="onboarding-footer__button">Enter Code</Link>
+					<Link to={"app:onboarding-" + this.props.id} transition="show-from-left" className="onboarding-footer__button">Back</Link>
+					<Link to={this.props.nextScreen} transition={this.props.transition || "fade"} className="onboarding-footer__button">Skip</Link>
+					<Link to={"app:onboarding-" + this.props.id + "-enter-code"} transition="show-from-left" className="onboarding-footer__button">Enter Code</Link>
 				</Container>
 			</Container>
 		);

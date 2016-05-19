@@ -146,7 +146,7 @@ var OnboardingView = React.createClass({
 				</Container>
 				<Container justify align="center" direction="row" className="onboarding-footer">
 					{this.renderResendEmail()}
-					<Link to={this.props.nextScreen} transition="fade" className="onboarding-footer__button">Skip</Link>
+					<Link to={this.props.nextScreen} transition={this.props.transition || "fade"} className="onboarding-footer__button">Skip</Link>
 					{this.renderEnterCode()}
 				</Container>
 				{this.renderScanner()}

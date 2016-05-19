@@ -232,6 +232,34 @@ DataStore.prototype.activate = function (ticketCode, callback) {
 	});
 };
 
+DataStore.prototype.activateHackathon = function (hackathonTicketCode, callback) {
+	this.cache.hackathonTicketCode = hackathonTicketCode;
+	var context = this;
+
+	this.apiQueue.push({
+		method: 'GET',
+		endpoint: '/checkin/events/28/checkinlists/' + secret.hackathon.id + '/' + secret.hackathon.token + '/attendee/' + hackathonTicketCode
+	}, function (err, data) {
+		if (err) return callback(err);
+		console.log(data);
+		callback();
+	});
+}
+
+DataStore.prototype.activateWorkshop = function (workshopTicketCode, callback) {
+	this.cache.workshopTicketCode = workshopTicketCode;
+	var context = this;
+
+	this.apiQueue.push({
+		method: 'GET',
+		endpoint: '/checkin/events/28/checkinlists/' + secret.workshop.id + '/' + secret.workshop.token + '/attendee/' + workshopTicketCode
+	}, function (err, data) {
+		if (err) return callback(err);
+		console.log(data);
+		callback();
+	});
+}
+
 DataStore.prototype.editMe = function (newMe, callback) {
 	this.cache.me = newMe;
 	this.apiQueue.push({
@@ -306,5 +334,6 @@ DataStore.prototype.getSettings = function () { return this.cache.settings };
 DataStore.prototype.getSpeakers = function () { return this.cache.speakers };
 DataStore.prototype.getSponsors = function () { return this.cache.sponsors };
 DataStore.prototype.getTicketCode = function () { return this.cache.ticketCode };
+DataStore.prototype.getHackathonTicketCode = function () { return this.cache.hackathonTicketCode };
 
 module.exports = DataStore;

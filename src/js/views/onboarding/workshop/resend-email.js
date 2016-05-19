@@ -7,8 +7,8 @@ module.exports = React.createClass({
 	render () {
 		return (
 			<OnboardingResendEmail
-				id="main-event"
-				nextScreen="app:onboarding-main-event"
+				id="workshop"
+				nextScreen="app:onboarding-workshop"
 				transition="show-from-right"
 			/>
 		);

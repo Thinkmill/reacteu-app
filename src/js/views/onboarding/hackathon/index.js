@@ -10,7 +10,7 @@ var MainEventOnboarding = React.createClass({
 	contextTypes: { dataStore: React.PropTypes.object.isRequired },
 
 	onCodeEnter (ticketCode, callback) {
-		dataStore.activate(ticketCode, function (err) {
+		dataStore.activateHackathon(ticketCode, function (err) {
 			dataStore.synchronize();
 			callback(err);
 		});
@@ -20,10 +20,9 @@ var MainEventOnboarding = React.createClass({
 		return (
 			<OnboardingView
 				onCodeEnter={this.onCodeEnter}
-				nextScreen="app:onboarding-workshop"
-				id="main-event"
-				title="Main Event"
-				transition="show-from-right"
+				nextScreen="app:main"
+				id="hackathon"
+				title="Hackathon"
 			/>
 		);
 	}

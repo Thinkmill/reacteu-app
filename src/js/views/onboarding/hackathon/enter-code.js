@@ -8,7 +8,7 @@ module.exports = React.createClass({
 	contextTypes: { dataStore: React.PropTypes.object.isRequired },
 
 	onCodeEnter (ticketCode, callback) {
-		dataStore.activate(ticketCode, function (err) {
+		dataStore.activateHackathon(ticketCode, function (err) {
 			dataStore.synchronize();
 			callback(err);
 		});
@@ -17,11 +17,10 @@ module.exports = React.createClass({
 	render () {
 		return (
 			<OnboardingEnterCode
-				id="main-event"
 				onCodeEnter={this.onCodeEnter}
-				nextScreen="app:onboarding-workshop"
-				title="Main Event"
-				transition="show-from-right"
+				nextScreen="app:main"
+				id="hackathon"
+				title="Hackathon"
 			/>
 		);
 	}
