@@ -5,6 +5,7 @@ var defaultData = require('./default');
 var secret = require('./secret');
 var defaults = require('defaults');
 var httpify = require('httpify');
+var assign = require('object-assign');
 
 function DataStore () {
 	EventEmitter.call(this);
@@ -225,7 +226,7 @@ DataStore.prototype.activate = function (ticketCode, callback) {
 		endpoint: '/checkin/events/28/checkinlists/' + secret.main.id + '/' + secret.main.token + '/attendee/' + ticketCode
 	}, function (err, data) {
 		if (err) return callback(err);
-		context.cache.me = data;
+		context.cache.me = assign({}, context.cache.me, data);
 		context.cache.me.twitter = data.Questions[1].answer;
 		context.cache.me.bio = data.Questions[3].answer;
 		callback();
@@ -233,7 +234,6 @@ DataStore.prototype.activate = function (ticketCode, callback) {
 };
 
 DataStore.prototype.activateHackathon = function (hackathonTicketCode, callback) {
-	this.cache.hackathonTicketCode = hackathonTicketCode;
 	var context = this;
 
 	this.apiQueue.push({
@@ -241,13 +241,13 @@ DataStore.prototype.activateHackathon = function (hackathonTicketCode, callback)
 		endpoint: '/checkin/events/28/checkinlists/' + secret.hackathon.id + '/' + secret.hackathon.token + '/attendee/' + hackathonTicketCode
 	}, function (err, data) {
 		if (err) return callback(err);
-		console.log(data);
+		context.cache.me = context.cache.me || {};
+		context.cache.me.hackathonTicketCode = hackathonTicketCode;
 		callback();
 	});
 }
 
 DataStore.prototype.activateWorkshop = function (workshopTicketCode, callback) {
-	this.cache.workshopTicketCode = workshopTicketCode;
 	var context = this;
 
 	this.apiQueue.push({
@@ -255,7 +255,8 @@ DataStore.prototype.activateWorkshop = function (workshopTicketCode, callback) {
 		endpoint: '/checkin/events/28/checkinlists/' + secret.workshop.id + '/' + secret.workshop.token + '/attendee/' + workshopTicketCode
 	}, function (err, data) {
 		if (err) return callback(err);
-		console.log(data);
+		context.cache.me = context.cache.me || {};
+		context.cache.me.workshopTicketCode = workshopTicketCode;
 		callback();
 	});
 }
@@ -334,6 +335,7 @@ DataStore.prototype.getSettings = function () { return this.cache.settings };
 DataStore.prototype.getSpeakers = function () { return this.cache.speakers };
 DataStore.prototype.getSponsors = function () { return this.cache.sponsors };
 DataStore.prototype.getTicketCode = function () { return this.cache.ticketCode };
-DataStore.prototype.getHackathonTicketCode = function () { return this.cache.hackathonTicketCode };
+DataStore.prototype.getHackathonTicketCode = function () { return this.cache.me && this.cache.me.hackathonTicketCode };
+DataStore.prototype.getWorkshopTicketCode = function () { return this.cache.me && this.cache.me.workshopTicketCode };
 
 module.exports = DataStore;

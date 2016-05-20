@@ -19,9 +19,9 @@ module.exports = React.createClass({
 			<OnboardingEnterCode
 				id="main-event"
 				onCodeEnter={this.onCodeEnter}
-				nextScreen="app:onboarding-workshop"
+				nextScreen="app:main"
 				title="Main Event"
-				transition="show-from-right"
+				transition="fade"
 			/>
 		);
 	}

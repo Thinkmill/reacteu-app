@@ -9,7 +9,7 @@ module.exports = React.createClass({
 			<OnboardingResendEmail
 				id="main-event"
 				nextScreen="app:onboarding-main-event"
-				transition="show-from-right"
+				transition="fade"
 			/>
 		);
 	}

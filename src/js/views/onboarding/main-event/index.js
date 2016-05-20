@@ -20,10 +20,10 @@ var MainEventOnboarding = React.createClass({
 		return (
 			<OnboardingView
 				onCodeEnter={this.onCodeEnter}
-				nextScreen="app:onboarding-workshop"
+				nextScreen="app:main"
 				id="main-event"
 				title="Main Event"
-				transition="show-from-right"
+				transition="fade"
 			/>
 		);
 	}
