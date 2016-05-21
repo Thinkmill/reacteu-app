@@ -227,8 +227,19 @@ DataStore.prototype.activate = function (ticketCode, callback) {
 	}, function (err, data) {
 		if (err) return callback(err);
 		context.cache.me = assign({}, context.cache.me, data);
-		context.cache.me.twitter = data.Questions[1].answer;
-		context.cache.me.bio = data.Questions[3].answer;
+		// Save answer to questions to user data
+		for (var i = 0; i < data.Questions.length; i++) {
+			switch (data.Questions[i].question) {
+				case "A one line bio about you or what you do":
+					context.cache.me.bio = data.Questions[i].answer;
+					break;
+				case "Twitter":
+					context.cache.me.twitter = data.Questions[i].answer;
+					break;
+				default:
+					break;
+			}
+		}
 		callback();
 	});
 };
