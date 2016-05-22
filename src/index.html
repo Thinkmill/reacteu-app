@@ -13,10 +13,10 @@
 	-->
 	<head>
 		<!--- Debug CSP -->
-		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' * 'unsafe-inline'; img-src * data:; connect-src *; style-src 'self' 'unsafe-inline';">
+		<meta http-equiv="Content-Security-Policy" content="default-src https://codepush.azurewebsites.net 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval';; script-src 'self' * 'unsafe-inline'; img-src * data:; connect-src *; style-src 'self' 'unsafe-inline'; media-src *">
 
 		<!--- Production CSP
-		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src * data:; connect-src *; style-src 'self' 'unsafe-inline';">
+		<meta http-equiv="Content-Security-Policy" content="default-src https://codepush.azurewebsites.net 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; connect-src *; style-src 'self' 'unsafe-inline'; media-src *">
 		-->
 
 		<link rel="stylesheet" type="text/css" href="css/app.css">

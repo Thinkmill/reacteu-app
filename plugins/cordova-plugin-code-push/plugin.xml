@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-code-push" version="1.7.1-beta">
+        <name>CodePush</name>
+        <description>This plugin allows you to push code updates to your apps instantly using the CodePush service</description>
+        <license>MIT</license>
+        <keywords>cordova,code,push</keywords>
+        <repo>https://github.com/Microsoft/cordova-plugin-code-push.git</repo>
+
+        <dependency id="code-push" version=">=1.8.0-beta" />
+        <dependency id="cordova-plugin-file" version=">=3.0.0" /> 
+        <dependency id="cordova-plugin-file-transfer" version=">=1.3.0" /> 
+        <dependency id="cordova-plugin-zip" version=">=3.0.0" />
+        <dependency id="cordova-plugin-dialogs" version=">=1.1.1" />
+        <dependency id="cordova-plugin-device" version=">=1.1.0" />
+
+        <js-module src="bin/www/codePush.js" name="codePush">
+            <clobbers target="codePush" />
+        </js-module>
+
+        <js-module src="bin/www/localPackage.js" name="localPackage">
+            <clobbers target="LocalPackage" />
+        </js-module>
+
+        <js-module src="bin/www/remotePackage.js" name="remotePackage">
+            <clobbers target="RemotePackage" />
+        </js-module>
+
+        <js-module src="bin/www/syncStatus.js" name="syncStatus">
+            <clobbers target="SyncStatus" />
+        </js-module>
+
+        <js-module src="bin/www/installMode.js" name="installMode">
+            <clobbers target="InstallMode" />
+        </js-module>
+
+        <js-module src="bin/www/codePushUtil.js" name="codePushUtil">
+            <runs/>
+        </js-module>
+
+        <js-module src="bin/www/fileUtil.js" name="fileUtil">
+            <runs/>
+        </js-module>
+
+        <js-module src="bin/www/httpRequester.js" name="httpRequester">
+            <runs/>
+        </js-module>
+
+        <js-module src="bin/www/nativeAppInfo.js" name="nativeAppInfo">
+            <runs/>
+        </js-module>
+
+        <js-module src="bin/www/package.js" name="package">
+            <runs/>
+        </js-module>
+
+        <js-module src="bin/www/sdk.js" name="sdk">
+            <runs/>
+        </js-module>
+
+        <platform name="android">
+            <framework src="src/android/build-extras.gradle" custom="true" type="gradleReference" />
+            <source-file src="src/android/CodePush.java" target-dir="src/com/microsoft/cordova" />
+            <source-file src="src/android/CodePushPackageManager.java" target-dir="src/com/microsoft/cordova" />
+            <source-file src="src/android/CodePushPackageMetadata.java" target-dir="src/com/microsoft/cordova" />
+            <source-file src="src/android/CodePushPreferences.java" target-dir="src/com/microsoft/cordova" />
+            <source-file src="src/android/CodePushReportingManager.java" target-dir="src/com/microsoft/cordova" />
+            <source-file src="src/android/InstallMode.java" target-dir="src/com/microsoft/cordova" />
+            <source-file src="src/android/InstallOptions.java" target-dir="src/com/microsoft/cordova" />
+            <source-file src="src/android/Utilities.java" target-dir="src/com/microsoft/cordova" />
+            <source-file src="src/android/UpdateHashUtils.java" target-dir="src/com/microsoft/cordova" />
+            <config-file target="config.xml" parent="/*">
+                <feature name="CodePush">
+                    <param name="android-package" value="com.microsoft.cordova.CodePush" />
+                    <param name="onload" value="true" />
+                </feature>
+            </config-file>
+        </platform>
+
+        <platform name="ios">
+            <header-file src="src/ios/CodePush.h" />
+            <source-file src="src/ios/CodePush.m" />
+            <header-file src="src/ios/CodePushPackageMetadata.h" />
+            <source-file src="src/ios/CodePushPackageMetadata.m" />
+            <header-file src="src/ios/CodePushPackageManager.h" />
+            <source-file src="src/ios/CodePushPackageManager.m" />
+            <source-file src="src/ios/CodePushReportingManager.m" />
+            <header-file src="src/ios/CodePushReportingManager.h" />
+            <header-file src="src/ios/Utilities.h" />
+            <source-file src="src/ios/Utilities.m" />
+            <header-file src="src/ios/InstallOptions.h" />
+            <source-file src="src/ios/InstallOptions.m" />
+            <header-file src="src/ios/InstallMode.h" />
+            <source-file src="src/ios/UpdateHashUtils.m" />
+            <header-file src="src/ios/UpdateHashUtils.h" />
+            <config-file target="config.xml" parent="/*">
+                <feature name="CodePush">
+                    <param name="ios-package" value="CodePush" />
+                    <param name="onload" value="true" />
+                </feature>
+            </config-file>
+        </platform>
+    </plugin>

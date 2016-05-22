@@ -28,10 +28,19 @@
 		<splash src="resources/splash/android.png" density="mdpi" />
 		<splash src="resources/splash/android.png" density="hdpi" />
 		<splash src="resources/splash/android.png" density="xhdpi" />
+
+		<!-- CODEPUSH -->
+		<!-- Production -->
+		<preference name="CodePushDeploymentKey" value="3dC4K2JZ2MY2RXkdsdxe8xPTxwLaN1h1Lr9zb" />
+		<!-- Staging: Un12wp6Bw3_IhrzfyQBhowpA_p_vN1h1Lr9zb -->
 	</platform>
 
 	<!-- IOS -->
 	<platform name="ios">
+		<!-- CODEPUSH -->
+		<!-- Production -->
+		<preference name="CodePushDeploymentKey" value="M5thQofU_KiBb2g0lIj2M1RJcx46N1h1Lr9zb" />
+		<!-- Staging: vnXK_Iq7uZcga27gFHA4TixA06OKN1h1Lr9zb -->
 	</platform>
 
 	<!-- PLUGINS -->
