@@ -276,11 +276,16 @@ function startApp () {
 	React.render(<App />, document.getElementById('app'));
 }
 
-// native? wait for deviceready
+function startAppMobile () {
+	window.codePush.sync();
+	startApp();
+}
+
+// native? wait for deviceready and call codepush
 if (window.cordova) {
 	window.addEventListener('native.keyboardshow', keyboardShowHandler);
 	window.addEventListener('native.keyboardhide', keyboardHideHandler);
-	document.addEventListener('deviceready', startApp, false);
+	document.addEventListener('deviceready', startAppMobile, false);
 
 // browser, start asap
 } else {

@@ -50,6 +50,7 @@
 	<plugin name="cordova-plugin-splashscreen" spec="^2.0.0" />
 	<plugin name="cordova-plugin-statusbar" spec="^1.0.0" />
 	<plugin name="cordova-plugin-vibration" spec="^1.1.0" />
+	<plugin name="cordova-plugin-code-push" version="1.7.1-beta" />
 	<plugin name="cordova-plugin-whitelist" spec="^1.1.0" />
 	<plugin name="nl.x-services.plugins.socialsharing" spec="^4.3.18" />
 	<plugin name="phonegap-plugin-barcodescanner" spec="^3.1.0" />
