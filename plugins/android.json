@@ -1,0 +1,58 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-appavailability": {
+            "PACKAGE_NAME": "com.thinkmill.reactEurope"
+        },
+        "cordova-plugin-code-push": {
+            "PACKAGE_NAME": "com.thinkmill.reactEurope"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.thinkmill.reactEurope"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.thinkmill.reactEurope"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.thinkmill.reactEurope"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.thinkmill.reactEurope"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.thinkmill.reactEurope"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "com.thinkmill.reactEurope"
+        }
+    },
+    "dependent_plugins": {
+        "code-push": {
+            "PACKAGE_NAME": "com.thinkmill.reactEurope"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.thinkmill.reactEurope"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.thinkmill.reactEurope"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.thinkmill.reactEurope"
+        },
+        "cordova-plugin-zip": {
+            "PACKAGE_NAME": "com.thinkmill.reactEurope"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.thinkmill.reactEurope"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.thinkmill.reactEurope"
+        }
+    }
+}

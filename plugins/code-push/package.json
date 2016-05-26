@@ -1,0 +1,23 @@
+{
+  "name": "code-push",
+  "version": "1.9.2-beta",
+  "description": "Management SDK for the CodePush service",
+  "main": "script/index.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Microsoft/code-push.git"
+  },
+  "author": "Microsoft Corporation",
+  "license": "MIT",
+  "homepage": "https://microsoft.github.io/code-push",
+  "dependencies": {
+    "base-64": "^0.1.0",
+    "node-uuid": "^1.4.3",
+    "q": "^1.4.1",
+    "superagent": "^1.7.2",
+    "superagent-proxy": "^1.0.0"
+  }
+}
