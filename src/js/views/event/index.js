@@ -116,7 +116,7 @@ module.exports = React.createClass({
 						<div className="EventInfo__hero_title">Espace Charenton</div>
 						<div className="EventInfo__hero_address">327, rue de Charenton 75012 Paris</div>
 						<Tappable onTap={this.openAddress} className="EventInfo__hero_button button">Get Directions</Tappable>
-						<div className="EventInfo__hero_date">July 02 &amp; 03 &mdash; Paris, France</div>
+						<div className="EventInfo__hero_date">June 02 &amp; 03 &mdash; Paris, France</div>
 					</div>
 				</div>
 				<div className="EventInfo__summary text-block">ReactEurope is the occasion to meet the core team and other awesome members of the community to learn, socialize and have fun in the beautiful city of Paris with great food, entertainment, connectivity, prizes and more!</div>
