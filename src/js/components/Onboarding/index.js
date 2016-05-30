@@ -33,7 +33,21 @@ var OnboardingView = React.createClass({
 	componentDidMount () {
 		this.watch(window, 'online', this.updateOnlineStatus);
 		this.watch(window, 'offline', this.updateOnlineStatus);
+		document.addEventListener('online', this.onOnline, false);
+		document.addEventListener('offline', this.onOffline, false);
 	},
+
+	onOnline () {
+		this.setState({
+			online: true,
+		});
+	}
+
+	onOffline () {
+		this.setState({
+			online: false,
+		});
+	}
 
 	updateOnlineStatus (event) {
 		this.setState({
