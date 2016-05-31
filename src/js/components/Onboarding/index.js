@@ -41,13 +41,13 @@ var OnboardingView = React.createClass({
 		this.setState({
 			online: true,
 		});
-	}
+	},
 
 	onOffline () {
 		this.setState({
 			online: false,
 		});
-	}
+	},
 
 	updateOnlineStatus (event) {
 		this.setState({
