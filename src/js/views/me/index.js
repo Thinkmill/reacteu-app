@@ -8,6 +8,8 @@ var Section = require('./section');
 var EventEmitter = require('events').EventEmitter;
 var emitter = new EventEmitter();
 
+const scrollable = Container.initScrollable();
+
 module.exports = React.createClass({
 	displayName: 'ViewMe',
 	contextTypes: { dataStore: React.PropTypes.object.isRequired },
@@ -63,7 +65,7 @@ module.exports = React.createClass({
 		var qrUrl = 'https://chart.googleapis.com/chart?cht=qr&chl=' + ticketCode + '&chs=400x400';
 
 		return (
-			<Container scrollable ref="scrollContainer" align="center" direction="column" className="MeRegistration__body">
+			<Container fill scrollable={scrollable} ref="scrollContainer" align="center" direction="column" className="MeRegistration__body">
 
 					{/* Main event*/}
 					{(person && person.first_name) ? (
